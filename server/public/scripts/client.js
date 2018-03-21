@@ -44,7 +44,61 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/new-list', {
       templateUrl: '/views/newList/start.packing.html',
-      controller: 'InfoController as vm',
+      controller: 'NewListController as vm',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/essentials', {
+      templateUrl: '/views/newList/essentials.html',
+      controller: 'NewListController as vm',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/toiletries', {
+      templateUrl: '/views/newList/toiletries.html',
+      controller: 'NewListController as vm',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/wardrobe', {
+      templateUrl: '/views/newList/wardrobe.html',
+      controller: 'NewListController as vm',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/entertainment', {
+      templateUrl: '/views/newList/entertainment.html',
+      controller: 'NewListController as vm',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/documents', {
+      templateUrl: '/views/newList/documents.html',
+      controller: 'NewListController as vm',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/misc', {
+      templateUrl: '/views/newList/misc.html',
+      controller: 'NewListController as vm',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();

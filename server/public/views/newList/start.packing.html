@@ -4,4 +4,45 @@
     <h4>
         <div ng-include="'views/partials/list.categories.html'"></div>
     </h4>
+    <div class="Category">
+        <h2>
+            Name the List: <input ng-model="vm.newList" placeholder="Trip to Greece">
+        </h2>
+        <div>
+            <p>
+                When are you going? 
+                <input type="date" ng-model="date" value="{{ date | date: 'yyyy-MM-dd' }}">
+            </p>
+
+            <p>
+                How long are you going to be gone?
+                <input type="number" ng-model="tripLength" placeholder="2">
+            </p>
+
+            <p>
+                Where are you going?
+                <input ng-model="destination" placeholder="Destination">
+            </p>
+
+            <p>
+                How are you traveling?
+                <select ng-model="travel">
+                    <option value="" disabled selected>Choose</option>
+                    <option value="road">Road</option>
+                    <option value="air">Plane</option>
+                </select>
+            </p>
+            
+            <p>
+                Do you want reminders? 
+                <select ng-model="reminders">
+                    <option value="" disabled selected>Choose</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </p>
+            <button>Start Packing!</button>
+        </div>
+    </div>
+
 </div>

@@ -11,7 +11,7 @@ body, html {
 }
 
 .instructions {
-  background-color: #333333;
+  background-color: rgb(14, 12, 53);
   color: #DDDDDD;
   padding: 15px;
 }
@@ -49,7 +49,7 @@ body, html {
 }
 
 .navbar {
-  background-color: #333333;
+  background-color: rgb(14, 12, 53);
   width: 100%;
   border-radius: 0px;
 }
@@ -79,12 +79,30 @@ li a:hover {
   color: #eee;
 }
 
-.table {
+table {
+    margin: 20px;
     padding: 13px;
     border: solid;
+    border-collapse: collapose;
     border-color: #CBD8E2  ;
     border-width: 3px;
     font-size: 15px;
-    color: #100D6F;
+    color: rgb(14, 12, 53);
     
 }
+table, th, td {
+    border: 1px solid #CBD8E2;
+}
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+ .Category {
+  margin: 15px;
+  padding: 20px;
+  border: solid;
+  border-color: #CBD8E2  ;
+  border-width: 3px;
+  color: rgb(14, 12, 53);
+ }

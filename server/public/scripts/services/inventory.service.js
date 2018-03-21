@@ -2,10 +2,7 @@ myApp.service('InventoryService', ['$http', '$location', function ($http, $locat
     console.log('InventoryService Loaded');
     let self = this;
     
-    self.userObject = { };
-    console.log(self.userObject);
-    
-
+   
     self.inventory = { 
         list:[ ], 
         inventoryItem : {} 
@@ -29,7 +26,6 @@ myApp.service('InventoryService', ['$http', '$location', function ($http, $locat
         })
     }
 
-    // self.getInventory(self.userObject.id);
 
 
         //adding new items to the inventory

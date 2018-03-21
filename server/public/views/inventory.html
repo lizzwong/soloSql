@@ -1,17 +1,19 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
 <div class="container">
-    <div>
-      <h2>Inventory</h2> 
-      <form>
-    <input ng-model="vm.inventory.inventoryItem.type" placeholder="Type">
-    <input ng-model="vm.inventory.inventoryItem.item" placeholder="Item">
-    <input ng-model="vm.inventory.inventoryItem.description" placeholder="Description">
-    <input ng-model="vm.inventory.inventoryItem.notes" placeholder="Notes">
+    <h2>Inventory</h2>
+    <div class="Category">
+        <div>
+            <h3>Add to Inventory:</h3>
+        <form>
+        <input ng-model="vm.inventory.inventoryItem.type" placeholder="Type">
+        <input ng-model="vm.inventory.inventoryItem.item" placeholder="Item">
+        <input ng-model="vm.inventory.inventoryItem.description" placeholder="Description">
+        <input ng-model="vm.inventory.inventoryItem.notes" placeholder="Notes">
 
-    <input type="button" ng-click="vm.addToInventory(vm.inventory.inventoryItem)" value="Add"/>
-    </form>
-    </div>
+        <input type="button" ng-click="vm.addToInventory(vm.inventory.inventoryItem)" value="Add"/>
+        </form>
+        </div>
 
     <div>
         <table>
@@ -38,6 +40,6 @@
             </tr>
         </tbody>
         </table>
-
+        </div>
     </div>
 </div>
