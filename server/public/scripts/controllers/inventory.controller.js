@@ -5,5 +5,13 @@ myApp.controller('InventoryController', ['UserService', 'InventoryService', func
     self.inventoryService = InventoryService;
     self.addToInventory = InventoryService.addToInventory;
     self.getInventory = InventoryService.getInventory;
-    self.inventoryItem = InventoryService.inventoryItem;
+    self.inventory = InventoryService.inventory;
+    console.log(InventoryService.inventory);
+    
+    self.inventory.inventoryItem.userObject= UserService.userObject;
+    self.userObject = UserService.userObject;
+    
+    console.log('user is ', self.userObject);
+    InventoryService.getInventory(self.userObject.id);
+    
 }]);

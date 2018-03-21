@@ -3,9 +3,12 @@ const router = express.Router();
 const pool = require('../modules/pool');
 const bodyParser = require('body-parser');
 
-router.get('/', function (request, response){
-    const sqlText = 'SELECT * FROM inventory ORDER BY user_id';
-    pool.query(sqlText)
+router.get('/:id', function (request, response){
+    const id = request.params.id
+    console.log(id);
+    
+    const sqlText = 'SELECT * FROM inventory WHERE user_id=$1';
+    pool.query(sqlText, [id])
     .then(function(result){
         response.send(result.rows);
     })

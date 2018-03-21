@@ -2,18 +2,26 @@ myApp.service('InventoryService', ['$http', '$location', function ($http, $locat
     console.log('InventoryService Loaded');
     let self = this;
     
-    self.inventoryItem = { };
-    self.inventoryList = { list:[] };
+    self.userObject = { };
+    console.log(self.userObject);
+    
+
+    self.inventory = { 
+        list:[ ], 
+        inventoryItem : {} 
+    };
 
         //get inventory items
-    self.getInventory = function (){
+    self.getInventory = function (id){
+        console.log(id);
+        
         $http({
             method: 'GET',
-            url:'/inventory'
+            url: `/inventory/use/${id}`
         })
         .then(function(response){
-            console.log('Got inventory items', response.data);
-            self.inventoryList = response.data;
+            console.log('Inventory items:', response.data);
+            self.inventory.list = response.data;
         })
         .catch(function(error){
             console.log('Error getting inventory');
@@ -21,20 +29,23 @@ myApp.service('InventoryService', ['$http', '$location', function ($http, $locat
         })
     }
 
+    // self.getInventory(self.userObject.id);
+
+
         //adding new items to the inventory
-    self.addToInventory = function (){
+    self.addToInventory = function (item){
         console.log('In addToInventory');
-        console.log(self.inventoryItem);
+        console.log(item);
         
         $http({
             method: 'POST',
-            url: '/inventory/use',
+            url: '/inventory/use', 
             data: {
-                type: inventoryItem.type,
-                item: inventoryItem.item,
-                details: inventoryItem.description,
-                notes: inventoryItem.notes,
-                user: self.userObject.userName
+                type: self.inventory.inventoryItem.type,
+                item: self.inventory.inventoryItem.item,
+                description: self.inventory.inventoryItem.description,
+                notes: self.inventory.inventoryItem.notes,
+                user_id: self.inventory.inventoryItem.userObject.id
             }
         })
         .then(function(response){

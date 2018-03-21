@@ -67,7 +67,7 @@ li {
 
 li a {
   display: block;
-  color: white;
+  color: grey;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -77,4 +77,14 @@ li a {
 li a:hover {
   text-decoration: underline;
   color: #eee;
+}
+
+.table {
+    padding: 13px;
+    border: solid;
+    border-color: #CBD8E2  ;
+    border-width: 3px;
+    font-size: 15px;
+    color: #100D6F;
+    
 }

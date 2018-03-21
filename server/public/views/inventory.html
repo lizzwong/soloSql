@@ -4,22 +4,24 @@
     <div>
       <h2>Inventory</h2> 
       <form>
-    <input ng.model="vm.inventoryItem.type" placeholder="Type">
-    <input ng.model="vm.inventoryItem.item" placeholder="Item">
-    <input ng.model="vm.inventoryItem.description" placeholder="Description">
-    <input ng.model="vm.inventoryItem.notes" placeholder="Notes">
+    <input ng-model="vm.inventory.inventoryItem.type" placeholder="Type">
+    <input ng-model="vm.inventory.inventoryItem.item" placeholder="Item">
+    <input ng-model="vm.inventory.inventoryItem.description" placeholder="Description">
+    <input ng-model="vm.inventory.inventoryItem.notes" placeholder="Notes">
 
-    <input type="button" ng-click="vm.addToInventory(inventoryItem)" value="Add"/>
+    <input type="button" ng-click="vm.addToInventory(vm.inventory.inventoryItem)" value="Add"/>
     </form>
     </div>
 
-    <div ng-repeat="item in vm.inventory">
+    <div>
         <table>
         <thread>
             <th>Type</th>
             <th>Item</th>
             <th>Description</th>
             <th>Notes</th>
+            <th></th>
+            <th></th>
         </thread>
         <tbody>
             <tr ng-repeat="item in vm.inventory.list" ng-cloak>
