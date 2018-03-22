@@ -8,6 +8,7 @@ const sessionConfig = require('./modules/session-middleware');
 // Route includes
 const userRouter = require('./routes/user.router');
 const inventoryRouter = require('./routes/inventory.router');
+const listRouter = require('./routes/list.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -22,7 +23,8 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/inventory/use', inventoryRouter);
+app.use('/inventory', inventoryRouter);
+app.use('/list', listRouter);
 
 // Serve static files
 app.use(express.static('server/public'));

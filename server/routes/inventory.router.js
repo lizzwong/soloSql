@@ -7,7 +7,7 @@ router.get('/:id', function (request, response){
     const id = request.params.id
     console.log(id);
     
-    const sqlText = 'SELECT * FROM inventory WHERE user_id=$1';
+    const sqlText = 'SELECT * FROM inventory WHERE user_id=$1 ORDER BY id';
     pool.query(sqlText, [id])
     .then(function(result){
         console.log('Getting inventory items');

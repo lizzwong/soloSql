@@ -14,7 +14,7 @@ myApp.service('InventoryService', ['$http', '$location', function ($http, $locat
         
         $http({
             method: 'GET',
-            url: `/inventory/use/${id}`
+            url: `/inventory/${id}`
         })
         .then(function(response){
             console.log('Inventory items:', response.data);
@@ -35,7 +35,7 @@ myApp.service('InventoryService', ['$http', '$location', function ($http, $locat
         
         $http({
             method: 'POST',
-            url: '/inventory/use', 
+            url: '/inventory', 
             data: {
                 type: self.inventory.inventoryItem.type,
                 item: self.inventory.inventoryItem.item,
@@ -47,6 +47,7 @@ myApp.service('InventoryService', ['$http', '$location', function ($http, $locat
         .then(function(response){
             console.log('Inventory item added');
             self.getInventory(self.inventory.inventoryItem.userObject.id);
+            self.emptyInputs();
         })
         .catch(function(error){
             console.log('Error posting inventory item', error);
@@ -59,7 +60,7 @@ myApp.service('InventoryService', ['$http', '$location', function ($http, $locat
         
         $http({
             method: 'DELETE',
-            url: `/inventory/use/delete/${item.id}`
+            url: `/inventory/delete/${item.id}`
         })
         .then(function(response){
             console.log('Item deleted');
@@ -79,7 +80,7 @@ myApp.service('InventoryService', ['$http', '$location', function ($http, $locat
         
         $http({
             method: 'PUT',
-            url: `/inventory/use/${item.id}`,
+            url: `/inventory/${item.id}`,
             data: { item:item }
         })
         .then(function(response){
@@ -91,4 +92,11 @@ myApp.service('InventoryService', ['$http', '$location', function ($http, $locat
         })
     }
 
+    self.emptyInputs = function(){
+        self.inventory.inventoryItem.type = '', 
+        self.inventory.inventoryItem.item = '',
+        self.inventory.inventoryItem.description = '',
+        self.inventory.inventoryItem.notes = '',
+        self.inventory.inventoryItem.userObject.id = ''
+    }
 }]);

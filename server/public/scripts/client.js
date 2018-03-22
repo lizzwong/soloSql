@@ -44,7 +44,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/new-list', {
       templateUrl: '/views/newList/start.packing.html',
-      controller: 'NewListController as vm',
+      controller: 'ListController as vm',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();
@@ -53,7 +53,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/essentials', {
       templateUrl: '/views/newList/essentials.html',
-      controller: 'NewListController as vm',
+      controller: 'ListController as vm',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();
@@ -62,7 +62,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/toiletries', {
       templateUrl: '/views/newList/toiletries.html',
-      controller: 'NewListController as vm',
+      controller: 'ListController as vm',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();
@@ -71,7 +71,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/wardrobe', {
       templateUrl: '/views/newList/wardrobe.html',
-      controller: 'NewListController as vm',
+      controller: 'ListController as vm',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();
@@ -80,7 +80,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/entertainment', {
       templateUrl: '/views/newList/entertainment.html',
-      controller: 'NewListController as vm',
+      controller: 'ListController as vm',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();
@@ -89,7 +89,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/documents', {
       templateUrl: '/views/newList/documents.html',
-      controller: 'NewListController as vm',
+      controller: 'ListController as vm',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();
@@ -98,7 +98,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/misc', {
       templateUrl: '/views/newList/misc.html',
-      controller: 'NewListController as vm',
+      controller: 'ListController as vm',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();
