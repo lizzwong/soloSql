@@ -89,6 +89,23 @@ myApp.service('ListService', ['$http', '$location', function ($http, $location) 
         })
     }
 
+    self.archiveList = function(list){
+        console.log('Archiving list', list);
+
+        $http({
+            method: 'PUT', 
+            url: `/lists/archive/${list.id}`,
+        })
+        .then(function (response){
+            console.log('response', response);
+            self.getLists(list.user_id)
+        })
+        .catch(function(error){
+            console.log('Error archiving list');
+            
+        })
+    }
+
     self.emptyInputs = function () {
         self.lists.newList.title = '',
         self.lists.newList.departure = '',

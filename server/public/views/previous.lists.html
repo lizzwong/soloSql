@@ -3,4 +3,50 @@
     <h2>
        Previous Packing Lists
     </h2>
+        <div class="container">
+            <div class="Category">
+                <div>
+                    <table>
+                        <thread>
+                            <th>Title</th>
+                            <th>Departure Date</th>
+                            <th>Trip Length</th>
+                            <th>Destination</th>
+                            <th>Travel Type</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </thread>
+                        <tbody>
+                            <tr ng-if="list.finished==true" ng-repeat="list in vm.lists.allLists" ng-cloak>
+                                <td>
+                                    <div ng-hide="list.editing">{{list.title}}</div>
+                                    <input ng-show="list.editing" ng-model="list.title" ng-value="list.title">
+                                </td>
+                                <td>
+                                    <div ng-hide="list.editing">{{list.departure.substring(0,10)}}</div>
+                                    <input type="date" ng-show="list.editing" ng-model="list.departure" ng-value="{{ date | date: 'yyyy-MM-dd' }}">
+                                </td>
+                                <td>
+                                    <div ng-hide="list.editing">{{list.duration}} Days</div>
+                                    <input ng-show="list.editing" ng-model="list.duration" ng-value="list.duration">
+                                </td>
+                                <td>
+                                    <div ng-hide="list.editing">{{list.destination}}</div>
+                                    <input ng-show="list.editing" ng-model="list.destination" ng-value="list.destination">
+                                </td>
+                                <td>
+                                    <div ng-hide="list.editing">{{list.method}}</div>
+                                    <input ng-show="list.editing" ng-model="list.method" ng-value="list.method">
+                                </td>
+                                <td>
+                                    <button ng-click="vm.deleteList(list)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

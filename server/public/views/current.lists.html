@@ -15,9 +15,10 @@
                         <th>Travel Type</th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </thread>
                     <tbody>
-                        <tr ng-repeat="list in vm.lists.allLists" ng-cloak>
+                        <tr ng-if="list.finished==false" ng-repeat="list in vm.lists.allLists" ng-cloak>
                             <td>
                                 <div ng-hide="list.editing">{{list.title}}</div>
                                 <input ng-show="list.editing" ng-model="list.title" ng-value="list.title">
@@ -44,6 +45,9 @@
                             </td>
                             <td>
                                 <button ng-click="vm.deleteList(list)">Delete</button>
+                            </td>
+                            <td>
+                                <button ng-click="vm.archiveList(list)">Archive</button>
                             </td>
                         </tr>
                     </tbody>

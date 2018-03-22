@@ -65,4 +65,19 @@ router.put('/:id', function(request, response){
     })
 })
 
+router.put('/archive/:id', function (request, response) {
+    const id = request.params.id;
+   // console.log('Updated list', list);
+    const sqlText = `UPDATE trips SET finished=TRUE WHERE id=$1`;
+    pool.query(sqlText, [id])
+        .then(function (result) {
+            console.log('List finished');
+            response.sendStatus(201);
+        })
+        .catch(function (error) {
+            console.log('Error finishing list', error);
+            response.sendStatus(500);
+        })
+})
+
 module.exports = router;

@@ -20,4 +20,6 @@ myApp.controller('ListController', ['UserService', 'InventoryService', 'ListServ
     self.deleteList = ListService.deleteList;
     self.saveList = ListService.saveList;
 
+    self.archiveList = ListService.archiveList;
+
 }]);
