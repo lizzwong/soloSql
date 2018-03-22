@@ -27,15 +27,28 @@
         </thread>
         <tbody>
             <tr ng-repeat="item in vm.inventory.list" ng-cloak>
-                <td>{{item.type}}</td>
-                <td>{{item.item}}</td>
-                <td>{{item.description}}</td>
-                <td>{{item.notes}}</td>
                 <td>
-                    <button ng-click="vm.editFavorite(item)">Edit</button>
+                    <div ng-hide="item.editing">{{item.type}}</div>
+                    <input ng-show="item.editing" ng-model="item.type" ng-value="item.type">
                 </td>
                 <td>
-                    <button ng-click="vm.deleteFavorite(item)">Delete</button>
+                    <div ng-hide="item.editing">{{item.item}}</div>
+                    <input ng-show="item.editing" ng-model="item.item" ng-value="item.item">
+                </td>
+                <td>
+                    <div ng-hide="item.editing">{{item.description}}</div>
+                    <input ng-show="item.editing" ng-model="item.description" ng-value="item.description">
+                </td>
+                <td>
+                    <div ng-hide="item.editing">{{item.notes}}</div>
+                    <input ng-show="item.editing" ng-model="item.notes" ng-value="item.notes">
+                </td>
+                <td>
+                    <button ng-hide="item.editing" ng-click="vm.editInventoryItem(item)">Edit</button>
+                    <button ng-show="item.editing" ng-click="vm.saveInventoryItem(item)">Save</button>
+                </td>
+                <td>
+                    <button ng-click="vm.deleteInventoryItem(item)">Delete</button>
                 </td>
             </tr>
         </tbody>

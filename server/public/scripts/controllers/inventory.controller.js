@@ -13,5 +13,9 @@ myApp.controller('InventoryController', ['UserService', 'InventoryService', func
     
     console.log('user is ', self.userObject);
     InventoryService.getInventory(self.userObject.id);
+
+    self.deleteInventoryItem = InventoryService.deleteInventoryItem;
+    self.editInventoryItem = InventoryService.editInventoryItem;
+    self.saveInventoryItem = InventoryService.saveInventoryItem;
     
 }]);

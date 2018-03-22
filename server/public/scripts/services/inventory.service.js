@@ -45,11 +45,49 @@ myApp.service('InventoryService', ['$http', '$location', function ($http, $locat
             }
         })
         .then(function(response){
-            console.log();
-            self.getInventory();
+            console.log('Inventory item added');
+            self.getInventory(self.inventory.inventoryItem.userObject.id);
         })
         .catch(function(error){
             console.log('Error posting inventory item', error);
+        })
+    }
+
+    self.deleteInventoryItem = function(item){
+        console.log('In deleteInventoryItem');
+        console.log(item);
+        
+        $http({
+            method: 'DELETE',
+            url: `/inventory/use/delete/${item.id}`
+        })
+        .then(function(response){
+            console.log('Item deleted');
+            self.getInventory(item.user_id);
+        })
+        .catch(function(error){
+            console.log('Error deleting item', error);
+        })
+    }
+
+    self.editInventoryItem = function(item){
+        item.editing = true;
+    }
+
+    self.saveInventoryItem = function(item){
+        console.log('Updating invntory item',item);
+        
+        $http({
+            method: 'PUT',
+            url: `/inventory/use/${item.id}`,
+            data: { item:item }
+        })
+        .then(function(response){
+            console.log('response', response);
+            self.getInventory(item.user_id);
+        })
+        .catch(function(error){
+            console.log('Error updating item');
         })
     }
 
