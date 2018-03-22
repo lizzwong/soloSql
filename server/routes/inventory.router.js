@@ -6,16 +6,14 @@ const bodyParser = require('body-parser');
 router.get('/:id', function (request, response){
     const id = request.params.id
     console.log(id);
-    
     const sqlText = 'SELECT * FROM inventory WHERE user_id=$1 ORDER BY id';
     pool.query(sqlText, [id])
     .then(function(result){
         console.log('Getting inventory items');
-        
         response.send(result.rows);
     })
     .catch(function(error){
-        console.log('Error on getting inventory items', error);
+        console.log('Error getting inventory items', error);
         response.sendStatus(500);
     })
 })
@@ -53,7 +51,7 @@ router.delete('/delete/:id', function(request,response){
 router.put('/:id', function(request,response){
     const id = request.params.id;
     const item = request.body.item;
-    console.log('Updat item', item);
+    console.log('Updated item', item);
     const sqlText =  `UPDATE inventory SET type=$1, item=$2, description=$3, notes=$4, user_id=$5 WHERE id=$6 `;
     pool.query(sqlText, [item.type, item.item, item.description, item.notes, item.user_id, item.id])
         .then(function(result){

@@ -5,43 +5,45 @@
         <div ng-include="'views/partials/list.categories.html'"></div>
     </h4>
     <div class="Category">
+        <form>
         <h2>
-            Name the List: <input ng-model="vm.newList" placeholder="Trip to Greece">
+            Name the List: <input ng-model="vm.lists.newList.title" placeholder="Trip to Greece">
         </h2>
         <div>
             <p>
                 When are you going? 
-                <input type="date" ng-model="date" value="{{ date | date: 'yyyy-MM-dd' }}">
+                <input type="date" ng-model="vm.lists.newList.departure" value="{{ date | date: 'yyyy-MM-dd' }}">
             </p>
 
             <p>
                 How long are you going to be gone?
-                <input type="number" ng-model="tripLength" placeholder="2">
+                <input type="number" ng-model="vm.lists.newList.duration" placeholder="2">
             </p>
 
             <p>
                 Where are you going?
-                <input ng-model="destination" placeholder="Destination">
+                <input ng-model="vm.lists.newList.destination" placeholder="Destination">
             </p>
 
             <p>
                 How are you traveling?
-                <select ng-model="travel">
+                <select ng-model="vm.lists.newList.method">
                     <option value="" disabled selected>Choose</option>
-                    <option value="road">Road</option>
-                    <option value="air">Plane</option>
+                    <option value="Road">Road</option>
+                    <option value="Air">Plane</option>
                 </select>
             </p>
             
             <p>
                 Do you want reminders? 
-                <select ng-model="reminders">
+                <select ng-model="vm.lists.newList.reminders">
                     <option value="" disabled selected>Choose</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
+                    <option value=true>Yes</option>
+                    <option value=false>No</option>
                 </select>
             </p>
-            <button>Start Packing!</button>
+            <input type="button" ng-click="vm.addList(vm.list.newList)" value="Start Packing!">
+        </form>
         </div>
     </div>
 

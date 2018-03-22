@@ -107,7 +107,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/current-lists', {
       templateUrl: '/views/current.lists.html',
-      controller: 'InfoController as vm',
+      controller: 'ListController as vm',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();

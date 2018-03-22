@@ -21,11 +21,9 @@ myApp.service('InventoryService', ['$http', '$location', function ($http, $locat
             self.inventory.list = response.data;
         })
         .catch(function(error){
-            console.log('Error getting inventory');
-            
+            console.log('Error getting inventory'); 
         })
     }
-
 
 
         //adding new items to the inventory
