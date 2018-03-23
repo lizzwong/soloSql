@@ -108,3 +108,20 @@ tr:nth-child(odd) {
   border-width: 3px;
   color: rgb(14, 12, 53);
  }
+
+ .packingForms {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  font-size: 18px;
+  border-style: solid;
+  border-color: rgb(170, 177, 199)
+ }
+
+ checkbox {
+   background-color: darkslateblue
+ }
+
+ button {
+   float:right;
+ }

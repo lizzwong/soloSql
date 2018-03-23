@@ -5,8 +5,32 @@
         <div ng-include="'views/partials/list.categories.html'"></div>
     </h4>
     <div class="Category" >
-        <h2>
-            Essentials
-        </h2>
+        <h2> Essentials </h2>
+        <div>
+           <form class="packingForms">
+                <label>Toothpaste 
+                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
+                </label><br>
+                <label>Hair Brush 
+                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
+                </label><br>
+                <label>Deoderant 
+                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
+                </label><br>
+                <label>Eyewear/Contacts 
+                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
+                </label><br>
+                <label>Underwear 
+                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
+                </label><br>
+                <label>Medications 
+                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
+                </label><br>
+                <label>Chargers 
+                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
+                </label><br>
+                <input type="button" value="Add">
+           </form>
+        </div>
     </div>
 </div>

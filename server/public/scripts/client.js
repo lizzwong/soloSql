@@ -69,6 +69,24 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
+    .when('/skincare', {
+      templateUrl: '/views/newList/skincare.html',
+      controller: 'ListController as vm',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/cosmetics', {
+      templateUrl: '/views/newList/cosmetics.html',
+      controller: 'ListController as vm',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
     .when('/wardrobe', {
       templateUrl: '/views/newList/wardrobe.html',
       controller: 'ListController as vm',
