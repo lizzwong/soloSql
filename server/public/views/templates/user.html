@@ -4,7 +4,8 @@
     <h2 id="welcome" class="lead">Hi, {{vm.userObject.userName}}!</h2>
     <h3>Where is wanderlust talking you today? </h3>
         <div>
-            Update your profile
+            Update your profile: 
+            <div class="Category">
         <form>
             <label for="email">Email:</label>
             <input ng-model="vm.userObject.email" />
@@ -12,5 +13,6 @@
             <input ng-model="vm.userObject.phone" />
             <input type="button" ng-click="vm.updateUser(vm.userObject)" value="Update"/>
         </form>  
+        </div>
         </div>
 </div>

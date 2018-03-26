@@ -6,8 +6,40 @@
     </h4>
     <div class="Category">
         <h2>Wardrobe</h2>
-        <form class="packingForms" >
-           <!-- <div ng-init= "vm.inventory.list"></div> -->
-        </form>
+        <input type="text" placeholder="Search..">
+        <input type="button" ng-click="vm.findItem()" value="Find" />
+        <table>
+            <thread>
+                <th>Type</th>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Notes</th>
+                <th></th>
+                
+            </thread>
+            <tbody>
+                <tr ng-repeat="item in vm.inventory.list" ng-cloak>
+                    <td>
+                        <div ng-hide="item.editing">{{item.type}}</div>
+                        <input ng-show="item.editing" ng-model="item.type" ng-value="item.type">
+                    </td>
+                    <td>
+                        <div ng-hide="item.editing">{{item.item}}</div>
+                        <input ng-show="item.editing" ng-model="item.item" ng-value="item.item">
+                    </td>
+                    <td>
+                        <div ng-hide="item.editing">{{item.description}}</div>
+                        <input ng-show="item.editing" ng-model="item.description" ng-value="item.description">
+                    </td>
+                    <td>
+                        <div ng-hide="item.editing">{{item.notes}}</div>
+                        <input ng-show="item.editing" ng-model="item.notes" ng-value="item.notes">
+                    </td>
+                    <td>
+                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

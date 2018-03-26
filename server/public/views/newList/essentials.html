@@ -6,14 +6,16 @@
     </h4>
     <div class="Category" >
         <h2> Essentials </h2>
+        <h3>{{vm.lists.allLists[vm.lists.allLists.length-1].title}}</h3>
         <div ng-if="item.category=='essentials'" ng-repeat="item in vm.lists.universal" ng-cloak>
           
            <form class="packingForms">
             <label> {{item.item}}</label>
-            <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-
+            <!-- <input type="checkbox" ng-checked="item.add" ng-click="vm.addItem(item.id, item.item, list.id)" /> -->
+            <input type="button" ng-click="vm.addItem(item.id, item.item, list.id)" value="Add">
            </form>
         
         </div>
     </div>
+   
 </div>

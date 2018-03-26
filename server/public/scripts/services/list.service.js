@@ -6,18 +6,20 @@ myApp.service('ListService', ['$http', '$location', function ($http, $location) 
     self.lists = {
         allLists : [],
         newList : {},
-        universal :['banana']
+        universal :['banana'],
+        viewList: []
     };
 
         //get all packing lists
     self.getLists = function(id){
-        $http({
+       return $http({
             method: 'GET', 
             url: `/lists/${id}`
         })
         .then(function(response){
             console.log('all lists:', response.data);
             self.lists.allLists = response.data;
+            return self.lists.allLists;
         })
         .catch(function(error){
             console.log('Error getting lists');
@@ -133,6 +135,46 @@ myApp.service('ListService', ['$http', '$location', function ($http, $location) 
         })
     }
     
+    self.listView = function(id){
+        console.log('Get list view');
+        console.log(id);
+        
+        $http({
+            method: 'GET', 
+            url:`/lists/view/${id}`
+        })
+        .then(function (response){
+            self.lists.viewList = response.data;
+            console.log('list', response.data);
+        })
+        .catch(function(error){
+            console.log('Error getting list');
+            
+        })
+
+    }
+
+    self.addItem = function (){
+        console.log('In addItem');
+        console.log('Add item to Progress');
+        
+        $http({
+            method:'POST',
+            url: `/lists/progress`,
+            data: {
+                item_id : item.id,
+                item : item.item,
+                trip_id : trip.id
+            }
+        })
+        .then(function(response){
+            self.listView(trip.id)
+        })
+        .catch(function(error){
+            console.log('Error adding to list view');
+            
+        })
+    }
     
     
 }]);

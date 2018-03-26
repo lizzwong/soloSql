@@ -94,4 +94,21 @@ router.get('/', function (request, response){
     })
 })
 
+
+router.post('/progress', function(request,response){
+    console.log('Add to progress');
+    const addItem = request.body;
+    console.log('Adding item', addItem);
+    const sqlText = `INSERT INTO progress (item_id, item, description, trip_id)
+            VALUES ($1, $2, $3, $4)`;
+    pool.query(sqlText, [addItem.item_id, addItem.item, addItem.description, addItem.trip_id])
+    .then(function(result){
+        console.log('Adding item success');
+        response.sendStatus(201);
+    })
+    .catch(function(error){
+        console.log('Error adding to progress', error);
+        response.sendStatus(500);
+    })
+})
 module.exports = router;
