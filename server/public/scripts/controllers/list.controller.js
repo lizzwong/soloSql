@@ -22,4 +22,18 @@ myApp.controller('ListController', ['UserService', 'InventoryService', 'ListServ
 
     self.archiveList = ListService.archiveList;
 
+    self.inventory = InventoryService.inventory;
+    self.inventory.list = InventoryService.inventory.list;
+
+    self.getUniversal = ListService.getUniversal;
+   
+    self.getUniversal().then(function(response){
+        //console.log(response);
+        self.lists.universal = response
+        console.log('Universal items in controller', self.lists.universal);
+    });
+    self.lists = ListService.lists;
+
+    //self.lists.universal = ListService.lists.universal;
+    //console.log('Universal items in controller', ListService.lists.universal);
 }]);

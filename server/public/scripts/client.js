@@ -105,6 +105,15 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
+    .when('/recreation', {
+      templateUrl: '/views/newList/adam.html',
+      controller: 'ListController as vm',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
     .when('/documents', {
       templateUrl: '/views/newList/documents.html',
       controller: 'ListController as vm',

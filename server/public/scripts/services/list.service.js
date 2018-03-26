@@ -5,7 +5,8 @@ myApp.service('ListService', ['$http', '$location', function ($http, $location) 
 
     self.lists = {
         allLists : [],
-        newList : {}
+        newList : {},
+        universal :['banana']
     };
 
         //get all packing lists
@@ -115,4 +116,23 @@ myApp.service('ListService', ['$http', '$location', function ($http, $location) 
         self.lists.newList.reminders = ''
     }
 
+    self.getUniversal = function (){
+        console.log('Get universal list');
+        
+        return $http({
+            method: 'GET',
+            url: `/lists`
+        })
+        .then(function (response){
+            self.lists.universal = response.data;
+            console.log('Universal items', self.lists.universal);
+            return self.lists.universal
+        })
+        .catch(function (error){
+            console.log('Error getting universal inventory');
+        })
+    }
+    
+    
+    
 }]);
