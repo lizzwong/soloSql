@@ -5,38 +5,15 @@
         <div ng-include="'views/partials/list.categories.html'"></div>
     </h4>
     <div class="Category">
-        <h2>
-            Entertainment 
-        </h2>
-        <div>
+        <h2> Entertainment </h2>
+        <div ng-if="item.category=='entertainment'" ng-repeat="item in vm.lists.universal" ng-cloak>
+    
             <form class="packingForms">
-                <label>Music 
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Headphones
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Instruments
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                
-                <br>
-                <label>Game consoles
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Movies
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Recreational equiptment
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label> <button><a ng-href="#!recreation">Detailed List</a></button>
-                <br>
-                <input type="button" value="Add">
+                <label> {{item.item}}</label>
+                <input type="checkbox" ng-model="checked" ng-init="checked=false" />
+    
             </form>
+    
         </div>
     </div>
 </div>

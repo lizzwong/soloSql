@@ -29,4 +29,23 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
       $location.path("/home");
     });
   }
+
+  self.updateUser = function(userObject){
+    console.log('In updateUser')
+    console.log(userObject.id);
+    
+    $http({
+      method: 'PUT', 
+      url: `/api/user/${userObject.id}`,
+      data: {userObject:userObject}
+    })
+    .then(function(response){
+      console.log('response', response);
+      
+    })
+    .catch(function(error){
+      console.log('Error updating user');
+    })
+
+  }
 }]);

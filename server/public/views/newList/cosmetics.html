@@ -5,47 +5,15 @@
         <div ng-include="'views/partials/list.categories.html'"></div>
     </h4>
     <div class="Category">
-        <h2> Cosmetics </h2>
-        <div>
+        <h2> Cosmetics</h2>
+        <div ng-if="item.category=='cosmetics'" ng-repeat="item in vm.lists.universal" ng-cloak>
+    
             <form class="packingForms">
-                <label>Primer(s) 
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Foundation 
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Blush 
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Bronzer 
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Eye shadow 
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Eyeliner 
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Mascara 
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Lip color 
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Brushes 
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <input type="button" value="Add">
+                <label> {{item.item}}</label>
+                <input type="checkbox" ng-model="checked" ng-init="checked=false" />
+    
             </form>
+    
         </div>
     </div>
 </div>

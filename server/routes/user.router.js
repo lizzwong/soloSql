@@ -55,4 +55,23 @@ router.get('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+router.put('/:id', function(request,response){
+  const id = request.params.id;
+  const user = request.body.userObject
+  console.log('Update user', request.body);
+  console.log(user.id, user.email, user.phone);
+  
+  const sqlText = `UPDATE users SET email=$2, phone=$3 WHERE id=$1`;
+  pool.query(sqlText, [user.id, user.email, user.phone])
+    .then(function (result) {
+      console.log('User updated', result);
+      response.sendStatus(201);
+    })
+    .catch(function (error) {
+      console.log('User not updated', error);
+      response.sendStatus(500);
+    })
+})
+  
+
 module.exports = router;

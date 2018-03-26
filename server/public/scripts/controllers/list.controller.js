@@ -9,7 +9,7 @@ myApp.controller('ListController', ['UserService', 'InventoryService', 'ListServ
     self.addList = ListService.addList;
     self.getLists = ListService.getLists;
     self.lists = ListService.lists;
-
+    
 
     self.lists.newList.userObject = UserService.userObject;
     self.userObject = UserService.userObject;
@@ -32,7 +32,8 @@ myApp.controller('ListController', ['UserService', 'InventoryService', 'ListServ
         self.lists.universal = response
         console.log('Universal items in controller', self.lists.universal);
     });
-    self.lists = ListService.lists;
+
+    //self.lists = ListService.lists;
 
     //self.lists.universal = ListService.lists.universal;
     //console.log('Universal items in controller', ListService.lists.universal);
