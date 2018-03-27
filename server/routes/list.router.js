@@ -111,4 +111,19 @@ router.post('/progress', function(request,response){
         response.sendStatus(500);
     })
 })
+
+router.get('/view/:id', function(request,response){
+    console.log('Getting recent list');
+    const id = request.params.id;
+    const sqlText = `SELECT * FROM progress WHERE trip_id=$1`;
+    pool.query(sqlText, [id])
+    .then(function(result){
+        console.log('Got list view items');
+        response.send(result.rows);
+    })
+    .catch(function(error){
+        console.log('Error getting list view', error);
+        response.sendStatus(500);
+    })
+})
 module.exports = router;

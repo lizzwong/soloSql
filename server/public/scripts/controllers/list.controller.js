@@ -10,13 +10,10 @@ myApp.controller('ListController', ['UserService', 'InventoryService', 'ListServ
     self.addList = ListService.addList;
     self.getLists = ListService.getLists;
     self.lists = ListService.lists;
-    // self.lists.allLists = ListService.lists.allLists;
-    // console.log(self.lists.allLists);
-    
-    self.getLists(self.userObject.id);
     console.log(self.lists.allLists);
+    
 
-    self.getLists().then(function (response) {
+    self.getLists(self.userObject.id).then(function(response) {
         self.lists.allLists = response;
         console.log('All lists in controller', self.lists.allLists);
 
@@ -41,10 +38,24 @@ myApp.controller('ListController', ['UserService', 'InventoryService', 'ListServ
    
     self.getUniversal().then(function(response){
         //console.log(response);
-        self.lists.universal = response
+        self.lists.universal = response;
         //console.log('Universal items in controller', self.lists.universal);
     });
 
     self.findItem = InventoryService.findItem;
     self.addItem = ListService.addItem;
+    self.item = ListService.item;
+    
+    self.lastList = self.lists.allLists[self.lists.allLists.length - 1];
+    console.log(self.lists.allLists[self.lists.allLists.length - 1]);
+
+     self.listView = ListService.listView;
+     self.listView(self.lastList).then(function(response){
+       self.lists.viewList = response;
+       console.log(self.lists.viewList);
+        
+    });
+    self.lists.viewList = ListService.viewList;
+    console.log(self.lists.viewList);
+    
 }]);

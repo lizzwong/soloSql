@@ -33,6 +33,15 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
+    .when('/listview', {
+      templateUrl: '/views/partials/list.view.html',
+      controller: 'ListController as vm',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
     .when('/inventory', {
       templateUrl: '/views/inventory.html',
       controller: 'InventoryController as vm',

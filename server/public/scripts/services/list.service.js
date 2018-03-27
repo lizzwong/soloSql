@@ -1,4 +1,4 @@
-myApp.service('ListService', ['$http', '$location', function ($http, $location) {
+myApp.service('ListService', ['$http', '$location', '$route', function ($http, $location, $route) {
     console.log('ListService Loaded');
     let self = this;
 
@@ -17,7 +17,7 @@ myApp.service('ListService', ['$http', '$location', function ($http, $location) 
             url: `/lists/${id}`
         })
         .then(function(response){
-            console.log('all lists:', response.data);
+            //console.log('all lists:', response.data);
             self.lists.allLists = response.data;
             return self.lists.allLists;
         })
@@ -135,17 +135,18 @@ myApp.service('ListService', ['$http', '$location', function ($http, $location) 
         })
     }
     
-    self.listView = function(id){
+    self.listView = function (lastList){
         console.log('Get list view');
-        console.log(id);
+        console.log();
         
-        $http({
+        return $http({
             method: 'GET', 
-            url:`/lists/view/${id}`
+            url: `/lists/view/${lastList}`
         })
         .then(function (response){
             self.lists.viewList = response.data;
-            console.log('list', response.data);
+            console.log('list', self.lists.viewList);
+            return self.lists.viewList
         })
         .catch(function(error){
             console.log('Error getting list');
@@ -153,10 +154,11 @@ myApp.service('ListService', ['$http', '$location', function ($http, $location) 
         })
 
     }
+    //self.listView(lastList);
 
-    self.addItem = function (){
+    self.addItem = function (item,lastList){
         console.log('In addItem');
-        console.log('Add item to Progress');
+        console.log('Add item to Progress', item, lastList);
         
         $http({
             method:'POST',
@@ -164,17 +166,21 @@ myApp.service('ListService', ['$http', '$location', function ($http, $location) 
             data: {
                 item_id : item.id,
                 item : item.item,
-                trip_id : trip.id
+                description: item.description,
+                trip_id : lastList
             }
         })
         .then(function(response){
-            self.listView(trip.id)
+            self.listView(lastList);
+            console.log('Item added to progress');
+           
         })
         .catch(function(error){
-            console.log('Error adding to list view');
-            
+            //self.listView(lastList);
+            console.log('Error adding to progress');
+           
         })
     }
     
-    
+   
 }]);
