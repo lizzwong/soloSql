@@ -4,7 +4,7 @@
     <h4>
         <div ng-include="'views/partials/list.categories.html'"></div>
     </h4>
-    <div class="Category" >
+    <div class="Category" class="col-md-8">
         <h2> Essentials </h2>
         <h3>{{vm.lastList.title}}</h3>
         <div ng-if="item.category=='essentials'" ng-repeat="item in vm.lists.universal" ng-cloak>

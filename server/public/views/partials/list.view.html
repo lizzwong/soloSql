@@ -1,6 +1,29 @@
-<div class="listView" class ="Category">
+<div class="listView" >
     <h3>{{vm.lastList.title}}</h3>
-     <div ng-repeat="item in vm.lists.viewList" ng-cloak>
-    {{item.item}}
-     </div>
+    <table>
+        <thread>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Category</th>
+            
+            <th></th>
+        </thread>
+        <tbody>
+            <tr ng-repeat="item in vm.lists.viewList" ng-cloak>
+                <td>
+                    {{item.item}}
+                </td>
+                <td>
+                    {{item.description}}
+                </td>
+                <td>
+                    {{item.category}}
+                    {{item.type}}
+                </td>
+                <td>
+                    <button ng-click="vm.deleteListItem(item)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

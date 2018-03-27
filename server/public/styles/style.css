@@ -90,6 +90,8 @@ table {
   border-width: 3px;
   font-size: 15px;
   color: rgb(14, 12, 53);
+  float: left;
+  width: 27%;
   
 }
 table, th, td {
@@ -107,6 +109,8 @@ tr:nth-child(odd) {
   border-color: #CBD8E2  ;
   border-width: 3px;
   color: rgb(14, 12, 53);
+  width: 60%;
+  float:left
  }
 
  .packingForms {
@@ -125,3 +129,4 @@ tr:nth-child(odd) {
  button {
    float:right;
  }
+

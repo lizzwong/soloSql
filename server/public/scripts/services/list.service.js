@@ -167,6 +167,8 @@ myApp.service('ListService', ['$http', '$location', '$route', function ($http, $
                 item_id : item.id,
                 item : item.item,
                 description: item.description,
+                category: item.category,
+                type: item.type,
                 trip_id : lastList
             }
         })
@@ -179,6 +181,22 @@ myApp.service('ListService', ['$http', '$location', '$route', function ($http, $
             //self.listView(lastList);
             console.log('Error adding to progress');
            
+        })
+    }
+
+    self.deleteListItem = function(item){
+        console.log('In delete list item');
+        
+        $http({
+            method: 'DELETE',
+            url: `/lists/deletelistitem/${item.id}`,
+        })
+        .then(function(response){
+            console.log('List item deleted');
+            self.listView(item.trip_id)
+        })
+        .catch(function(error){
+            console.log('Error deleting item');
         })
     }
     

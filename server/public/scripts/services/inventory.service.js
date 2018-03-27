@@ -1,4 +1,4 @@
-myApp.service('InventoryService', ['$http', '$location', function ($http, $location) {
+myApp.service('InventoryService', ['$http', '$location','$route', function ($http, $location, $route) {
     console.log('InventoryService Loaded');
     let self = this;
     
@@ -46,6 +46,7 @@ myApp.service('InventoryService', ['$http', '$location', function ($http, $locat
             console.log('Inventory item added');
             self.getInventory(self.inventory.inventoryItem.userObject.id);
             self.emptyInputs();
+            $route.reload();
         })
         .catch(function(error){
             console.log('Error posting inventory item', error);

@@ -99,9 +99,9 @@ router.post('/progress', function(request,response){
     console.log('Add to progress');
     const addItem = request.body;
     console.log('Adding item', addItem);
-    const sqlText = `INSERT INTO progress (item_id, item, description, trip_id)
-            VALUES ($1, $2, $3, $4)`;
-    pool.query(sqlText, [addItem.item_id, addItem.item, addItem.description, addItem.trip_id])
+    const sqlText = `INSERT INTO progress (item_id, item, description, category, type, trip_id)
+            VALUES ($1, $2, $3, $4, $5, $6)`;
+    pool.query(sqlText, [addItem.item_id, addItem.item, addItem.description, addItem.category, addItem.type, addItem.trip_id])
     .then(function(result){
         console.log('Adding item success');
         response.sendStatus(201);
@@ -123,6 +123,21 @@ router.get('/view/:id', function(request,response){
     })
     .catch(function(error){
         console.log('Error getting list view', error);
+        response.sendStatus(500);
+    })
+})
+
+router.delete('/deletelistitem/:id', function(request,response){
+    console.log('Deleting list item');
+    const id = request.params.id;
+    const sqlText = `DELETE FROM progress WHERE id=$1`;
+    pool.query(sqlText, [id])
+    .then(function(result){
+        console.log('Item deleted');
+        response.sendStatus(200)
+    })
+    .catch(function(error){
+        console.log('Error deleting item', error);
         response.sendStatus(500);
     })
 })

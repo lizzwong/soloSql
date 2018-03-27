@@ -58,4 +58,5 @@ myApp.controller('ListController', ['UserService', 'InventoryService', 'ListServ
     self.lists.viewList = ListService.viewList;
     console.log(self.lists.viewList);
     
+    self.deleteListItem = ListService.deleteListItem;
 }]);
