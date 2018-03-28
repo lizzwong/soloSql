@@ -5,14 +5,13 @@
         <div ng-include="'views/partials/list.categories.html'"></div>
     </h4>
     <div class="Category" class="col-md-8">
-        <h2> Essentials </h2>
+        <h2> Essentials </h2> <hr>
         <h3>{{vm.lastList.title}}</h3>
         <div ng-if="item.category=='essentials'" ng-repeat="item in vm.lists.universal" ng-cloak>
           
            <form class="packingForms">
             <label ng-value="item"> {{item.item}}</label>
             <input type="checkbox" ng-click="vm.addItem(item, vm.lastList.id)" value="Add">
-            <!-- <label ng-value="item"> {{item.item}}</label> -->
            </form>
         
         </div>

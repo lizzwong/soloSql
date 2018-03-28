@@ -1,20 +1,22 @@
 body, html {
   margin: 0;
-  padding: 0;
+  padding: 20;
   font-family: sans-serif;
   font-size: 14px;
-  color:rgb(14, 12, 53)
+  color:rgb(14, 12, 53);
 }
 
 .instructions .container h1 {
-  font-size: 32px;
+  font-size: 50px;
   font-weight: 600;
 }
 
 .instructions {
   background-color: rgb(14, 12, 53);
   color: #DDDDDD;
-  padding: 15px;
+  padding: 30px;
+  background-image: url("./florence_header.jpeg");
+  background-size: cover
 }
 
 #entryForm {
@@ -22,12 +24,14 @@ body, html {
 }
 
 .container {
-  padding: 20px;
-  border: 10px;
+  margin: 15px;
+  padding:20px;
+  border: 20px;
+  
 }
 
 .container p{
-  margin-top : 14px;
+  margin-top : 5px;
 }
 
 .message {
@@ -51,9 +55,14 @@ body, html {
 }
 
 .navbar {
-  background-color: rgb(14, 12, 53);
+  background-color: rgb(121, 80, 34);
   width: 100%;
+  height:10%;
   border-radius: 0px;
+  background-image: url("./florence_header.jpeg");
+  background-size: cover;
+
+  padding: 30px;
 }
 
 ul {
@@ -61,6 +70,9 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-color: rgb(235, 220, 207);
+  opacity: .7;
+  width: 90%;
 }
 
 li {
@@ -69,7 +81,7 @@ li {
 
 li a {
   display: block;
-  color: grey;
+  color: rgb(61, 44, 25);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -78,7 +90,7 @@ li a {
 /* Change the link color to #111 (black) on hover */
 li a:hover {
   text-decoration: underline;
-  color: #eee;
+  color: rgb(73, 41, 15);
 }
 
 table {
@@ -86,27 +98,27 @@ table {
   padding: 13px;
   border: solid;
   border-collapse: collapose;
-  border-color: #CBD8E2  ;
+  border-color: rgb(218, 208, 193)    ;
   border-width: 3px;
   font-size: 15px;
   color: rgb(14, 12, 53);
-  float: left;
-  width: 27%;
-  
+  text-align:center;
+  /* margin-left:auto; 
+  margin-right:auto; */
 }
 table, th, td {
-  border: 1px solid #CBD8E2;
+  border: 1px solid rgb(224, 207, 169);
 }
 
 tr:nth-child(odd) {
-  background-color: #f3f3f7;
+  background-color: rgb(236, 231, 225);
 }
 
 .Category {
   margin: 15px;
-  padding: 20px;
+  padding: 30px;
   border: solid;
-  border-color: #CBD8E2  ;
+  border-color: rgb(224, 207, 169)  ;
   border-width: 3px;
   color: rgb(14, 12, 53);
   width: 60%;
@@ -119,14 +131,26 @@ tr:nth-child(odd) {
   padding: 10px;
   font-size: 18px;
   border-style: solid;
-  border-color: rgb(170, 177, 199)
- }
-
- checkbox {
-   background-color: darkslateblue
+  border-color: rgb(233, 223, 207)  
  }
 
  button {
    float:right;
  }
 
+.listView {
+  margin: 5px;
+  padding: 1px;
+  /* border: solid; */
+  border-collapse: collapose;
+  border-color: rgb(218, 208, 193)  ;
+  border-width: 3px;
+  font-size: 15px;
+  color: rgb(14, 12, 53);
+  float: left;
+  width: 31%;
+}
+
+#home {
+  /* background-image: url('./img_1516.jpg') */
+}

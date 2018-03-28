@@ -115,7 +115,7 @@ router.post('/progress', function(request,response){
 router.get('/view/:id', function(request,response){
     console.log('Getting recent list');
     const id = request.params.id;
-    const sqlText = `SELECT * FROM progress WHERE trip_id=$1`;
+    const sqlText = `SELECT * FROM progress WHERE trip_id=$1 ORDER BY id`;
     pool.query(sqlText, [id])
     .then(function(result){
         console.log('Got list view items');
@@ -138,6 +138,21 @@ router.delete('/deletelistitem/:id', function(request,response){
     })
     .catch(function(error){
         console.log('Error deleting item', error);
+        response.sendStatus(500);
+    })
+})
+
+router.put('/completeitem/:id', function(request,response){
+    console.log('Completing item');
+    const id = request.params.id;
+    const sqlText =  `UPDATE progress SET packed=!packed WHERE id=$1`;
+    pool.query(sqlText, [id])
+    .then(function(result){
+        console.log('Item completed');
+        response.sendStatus(200)
+    })
+    .catch(function(error){
+        console.log('Error completing item', error);
         response.sendStatus(500);
     })
 })

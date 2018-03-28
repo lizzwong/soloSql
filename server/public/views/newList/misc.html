@@ -4,43 +4,28 @@
     <h4>
         <div ng-include="'views/partials/list.categories.html'"></div>
     </h4>
-    <div class="Category">
-        <h2>Miscellaneous</h2>
-        <div>
-            <form class="packingForms">
-                <label>Gifts 
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Borrowed items
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <p>Pet Needs</p>
-                <br>
-                <label>Harness
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Leash
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Bowl/food
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Kennel
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <label>Toys
-                    <input type="checkbox" ng-model="checked" ng-init="checked=false" />
-                </label>
-                <br>
-                <input type="button" value="Add">
-            </form>
+        <div class="Category" class="col-md-8">
+            <h2>Miscellaneous </h2><hr>
+            <h3>{{vm.lastList.title}}</h3>
+            <div ng-if="item.category=='miscellaneous'" ng-repeat="item in vm.lists.universal" ng-cloak>
+        
+                <form class="packingForms">
+                    <label ng-value="item"> {{item.item}}</label>
+                    <input type="checkbox" ng-click="vm.addItem(item, vm.lastList.id)" value="Add">
+                </form>
+        
+            </div>
+            <h3 style="text-align:center">Pets</h3>
+            <div ng-if="item.category=='pet'" ng-repeat="item in vm.lists.universal" ng-cloak>
+            
+                <form class="packingForms">
+                    <label ng-value="item"> {{item.item}}</label>
+                    <input type="checkbox" ng-click="vm.addItem(item, vm.lastList.id)" value="Add">
+                </form>
+            
+            </div>
         </div>
-    </div>
     
+    <div ng-include="'views/partials/list.view.html'"></div>
+
 </div>

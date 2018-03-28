@@ -1,12 +1,13 @@
-<div class="listView" >
-    <h3>{{vm.lastList.title}}</h3>
+<div class="listView">
+    <!-- <h3>{{vm.lastList.title}}</h3> -->
     <table>
         <thread>
             <th>Item</th>
             <th>Description</th>
             <th>Category</th>
-            
+            <th>Pack</th>
             <th></th>
+            
         </thread>
         <tbody>
             <tr ng-repeat="item in vm.lists.viewList" ng-cloak>
@@ -19,6 +20,9 @@
                 <td>
                     {{item.category}}
                     {{item.type}}
+                </td>
+                <td>
+                    <input type="checkbox" ng-checked="item.packed" ng-click="vm.complete(item)" >
                 </td>
                 <td>
                     <button ng-click="vm.deleteListItem(item)">Delete</button>

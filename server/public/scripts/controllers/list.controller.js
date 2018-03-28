@@ -19,6 +19,7 @@ myApp.controller('ListController', ['UserService', 'InventoryService', 'ListServ
 
     })
 
+    //----making/editing lists----
     self.lists.newList.userObject = UserService.userObject;
     self.userObject = UserService.userObject;
 
@@ -30,33 +31,41 @@ myApp.controller('ListController', ['UserService', 'InventoryService', 'ListServ
 
     self.archiveList = ListService.archiveList;
 
+    //----calling in inventory----
     self.inventory = InventoryService.inventory;
     self.inventory.list = InventoryService.inventory.list;
     InventoryService.getInventory(self.userObject.id);
 
+    //----get universal lists----
     self.getUniversal = ListService.getUniversal;
-   
+
     self.getUniversal().then(function(response){
         //console.log(response);
         self.lists.universal = response;
-        //console.log('Universal items in controller', self.lists.universal);
+        
     });
 
-    self.findItem = InventoryService.findItem;
+    //----adding item to packing list----
     self.addItem = ListService.addItem;
     self.item = ListService.item;
     
+    //----accessing the last item of list array----
     self.lastList = self.lists.allLists[self.lists.allLists.length - 1];
     console.log(self.lists.allLists[self.lists.allLists.length - 1]);
 
-     self.listView = ListService.listView;
-     self.listView(self.lastList).then(function(response){
+
+    //----calling list items----
+    self.listView = ListService.listView;
+
+    self.listView(self.lastList).then(function(response){
        self.lists.viewList = response;
        console.log(self.lists.viewList);
         
     });
-    self.lists.viewList = ListService.viewList;
-    console.log(self.lists.viewList);
+    // self.lists.viewList = ListService.viewList;
+    // console.log(self.lists.viewList);
     
+    //----deleting/editing packing lists----
     self.deleteListItem = ListService.deleteListItem;
+    self.complete = ListService.complete;
 }]);

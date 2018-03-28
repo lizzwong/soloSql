@@ -4,15 +4,32 @@
     <h2 id="welcome" class="lead">Hi, {{vm.userObject.userName}}!</h2>
     <h3>Where is wanderlust talking you today? </h3>
         <div>
-            Update your profile: 
-            <div class="Category">
-        <form>
-            <label for="email">Email:</label>
-            <input ng-model="vm.userObject.email" />
-            <label for="phone">Phone:</label>
-            <input ng-model="vm.userObject.phone" />
-            <input type="button" ng-click="vm.updateUser(vm.userObject)" value="Update"/>
-        </form>  
+        <div class="Category">
+            <h2>Profile</h2><hr>
+            <h3>Username:</h3>
+            <h4>{{vm.userObject.userName}}</h4>
+            <br> <br>
+            <h3>Email:</h3>
+            <h4>{{vm.userObject.email}}</h4>
+            <br>
+            <br>
+            <h3>Phone:</h3>
+            <h4>{{vm.userObject.phone}}</h4>
         </div>
+        </div>
+
+        <div class="Category">
+            <h3>Update your profile:</h3>
+            <br>
+            <form>
+                <label for="email">Email:</label>
+                <input ng-model="vm.userObject.email" />
+                <label for="phone">Phone:</label>
+                <input ng-model="vm.userObject.phone"/>
+                <input type="button" ng-click="vm.updateUser(vm.userObject)" value="Update" />
+            </form>
+        
         </div>
 </div>
+
+

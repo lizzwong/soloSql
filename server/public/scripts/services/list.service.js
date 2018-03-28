@@ -6,7 +6,7 @@ myApp.service('ListService', ['$http', '$location', '$route', function ($http, $
     self.lists = {
         allLists : [],
         newList : {},
-        universal :['banana'],
+        universal :[],
         viewList: []
     };
 
@@ -200,5 +200,20 @@ myApp.service('ListService', ['$http', '$location', '$route', function ($http, $
         })
     }
     
+    self.complete = function(item){
+        console.log('In complete item');
+        
+        $http({
+            method: 'PUT',
+            url:`/lists/completeitem/${item.id}`
+        })
+        .then(function(response){
+            console.log('Item completed');
+            self.listView(item.trip_id)
+        })
+        .catch(function(error){
+            console.log('Error completing item');
+        })
+    }
    
 }]);
