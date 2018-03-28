@@ -61,18 +61,20 @@ body, html {
   border-radius: 0px;
   background-image: url("./florence_header.jpeg");
   background-size: cover;
-
   padding: 30px;
+  font-weight: bold;
 }
 
 ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin-top: 15px;
+  margin: 18px;
+  padding: 18px;
   overflow: hidden;
   background-color: rgb(235, 220, 207);
-  opacity: .7;
+  opacity: .76;
   width: 90%;
+  margin: auto;
 }
 
 li {
@@ -103,8 +105,7 @@ table {
   font-size: 15px;
   color: rgb(14, 12, 53);
   text-align:center;
-  /* margin-left:auto; 
-  margin-right:auto; */
+  
 }
 table, th, td {
   border: 1px solid rgb(224, 207, 169);
@@ -118,7 +119,7 @@ tr:nth-child(odd) {
   margin: 15px;
   padding: 30px;
   border: solid;
-  border-color: rgb(224, 207, 169)  ;
+  border-color: rgb(219, 194, 155)  ;
   border-width: 3px;
   color: rgb(14, 12, 53);
   width: 60%;
@@ -132,6 +133,7 @@ tr:nth-child(odd) {
   font-size: 18px;
   border-style: solid;
   border-color: rgb(233, 223, 207)  
+  
  }
 
  button {
@@ -139,9 +141,8 @@ tr:nth-child(odd) {
  }
 
 .listView {
-  margin: 5px;
+  margin: 0px;
   padding: 1px;
-  /* border: solid; */
   border-collapse: collapose;
   border-color: rgb(218, 208, 193)  ;
   border-width: 3px;
@@ -152,5 +153,25 @@ tr:nth-child(odd) {
 }
 
 #home {
-  /* background-image: url('./img_1516.jpg') */
+  padding: 375px;
+  border: inherit;
+  margin: auto;
+  /* width:50%; */
+  text-align:center;
+  background-image:url(../styles/img_1516.jpg);
+  background-size:cover
+}
+
+#register {
+  padding: 375px;
+  border: inherit;
+  margin: auto;
+  /* width:50%; */
+  text-align:center;
+  background-image:url(../styles/img_1516.jpg);
+  background-size:cover
+}
+
+#listCategory{
+  padding:10000px;
 }

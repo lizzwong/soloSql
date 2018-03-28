@@ -26,11 +26,12 @@ router.post('/register', (req, res, next) => {
 
   var saveUser = {
     username: req.body.username,
-    password: encryptLib.encryptPassword(req.body.password)
+    password: encryptLib.encryptPassword(req.body.password),
+    picture: `https://cdn.filestackcontent.com/VRnQpEmlQEeBHbXxZTEl`
   };
   console.log('new user:', saveUser);
-  pool.query('INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id',
-    [saveUser.username, saveUser.password], (err, result) => {
+  pool.query('INSERT INTO users (username, password, picture) VALUES ($1, $2, $3) RETURNING id',
+    [saveUser.username, saveUser.password, saveUser.picture], (err, result) => {
       if (err) {
         console.log("Error inserting data: ", err);
         res.sendStatus(500);
@@ -61,8 +62,8 @@ router.put('/:id', function(request,response){
   console.log('Update user', request.body);
   console.log(user.id, user.email, user.phone);
   
-  const sqlText = `UPDATE users SET email=$2, phone=$3 WHERE id=$1`;
-  pool.query(sqlText, [user.id, user.email, user.phone])
+  const sqlText = `UPDATE users SET email=$2, phone=$3, picture=$4 WHERE id=$1`;
+  pool.query(sqlText, [user.id, user.email, user.phone, user.picture])
     .then(function (result) {
       console.log('User updated', result);
       response.sendStatus(201);

@@ -1,6 +1,9 @@
 myApp.service('UserService', ['$http', '$location', function($http, $location){
   console.log('UserService Loaded');
   var self = this;
+
+  self.fileStack = filestack.init('AGYranmHiSPmDq9MrDxyjz');
+
   self.userObject = {};
 
   self.getuser = function(){
@@ -12,6 +15,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
             self.userObject.id = response.data.id;
             self.userObject.email = response.data.email;
             self.userObject.phone = response.data.phone;
+            self.userObject.picture = response.data.picture;
             //console.log('UserService -- getuser -- User Data: ', self.userObject);
         } else {
             console.log('UserService -- getuser -- failure');
@@ -50,4 +54,29 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
     })
 
   }
+
+  self.profilePic = function(){
+    console.log('In profile upload');
+    
+    self.fileStack.pick({
+      accept: 'image/*',
+      maxFiles: 1
+    })
+    .then(function(result){
+      console.log('response', result);
+      alert("Successful upload!");
+      self.userObject.picture = result.filesUploaded[0].url;
+      console.log('New profile pic', self.userObject.picture);
+
+      self.updateUser(self.userObject.picture)
+      
+    })
+    .catch(function(error){
+      console.log('Error updating user');
+    })
+
+  }
+
+
+  
 }]);

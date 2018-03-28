@@ -7,5 +7,6 @@ myApp.controller('UserController', ['UserService', function(UserService) {
   
   self.updateUser = UserService.updateUser;
   self.user = UserService.user;
+  self.profilePic = UserService.profilePic
  
 }]);
