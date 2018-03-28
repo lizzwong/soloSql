@@ -3,7 +3,7 @@ myApp.controller('UserController', ['UserService', function(UserService) {
   var self = this;
   self.userService = UserService;
   self.userObject = UserService.userObject;
-  console.log('user',self.userObject);
+  //console.log('user',self.userObject);
   
   self.updateUser = UserService.updateUser;
   self.user = UserService.user;

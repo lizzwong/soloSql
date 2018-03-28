@@ -62,6 +62,8 @@ myApp.controller('ListController', ['UserService', 'InventoryService', 'ListServ
        console.log(self.lists.viewList);
         
     });
+
+    ListService.listView(ListService.lists.allLists.id)
     // self.lists.viewList = ListService.viewList;
     // console.log(self.lists.viewList);
     
