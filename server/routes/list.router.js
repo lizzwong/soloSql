@@ -115,7 +115,7 @@ router.post('/progress', function(request,response){
 router.get('/view/:id', function(request,response){
     console.log('Getting recent list');
     const id = request.params.id;
-    const sqlText = `SELECT * FROM progress WHERE trip_id=$1 ORDER BY id`;
+    const sqlText = `SELECT * FROM progress WHERE trip_id=$1 ORDER BY id, packed, category, type`;
     pool.query(sqlText, [id])
     .then(function(result){
         console.log('Got list view items');
@@ -145,7 +145,7 @@ router.delete('/deletelistitem/:id', function(request,response){
 router.put('/completeitem/:id', function(request,response){
     console.log('Completing item');
     const id = request.params.id;
-    const sqlText =  `UPDATE progress SET packed=!packed WHERE id=$1`;
+    const sqlText =  `UPDATE progress SET packed= NOT packed WHERE id=$1`;
     pool.query(sqlText, [id])
     .then(function(result){
         console.log('Item completed');

@@ -1,45 +1,46 @@
 body, html {
-  margin: 0;
   padding: 20;
-  font-family: sans-serif;
-  font-size: 14px;
+  margin: auto;
+  font-family: gill sans, optima, sans-serif;
+  font-size: 15px;
   color:rgb(14, 12, 53);
+  
 }
 
 .instructions .container h1 {
-  font-size: 50px;
+  font-size: 60px;
   font-weight: 600;
 }
 
-.instructions {
+/* .instructions {
   background-color: rgb(14, 12, 53);
   color: #DDDDDD;
   padding: 30px;
   background-image: url("./florence_header.jpeg");
   background-size: cover
-}
+} */
 
 #entryForm {
-  margin-top: 14px;
+  margin-top: 10px;
 }
 
 .container {
-  margin: 15px;
-  padding:20px;
-  border: 20px;
+  margin: 20px;
+  padding:0px;
+  border: 15px;
   
 }
 
 .container p{
-  margin-top : 5px;
+  margin-top : 0px;
 }
 
 .message {
-  padding: 10px 0;
+  padding: 0px 0;
 }
 
 .message p {
-  margin-left: 10px;
+  margin-left: 0px;
 }
 
 .message:nth-child(odd) {
@@ -56,25 +57,28 @@ body, html {
 
 .navbar {
   background-color: rgb(121, 80, 34);
-  width: 100%;
-  height:10%;
+  width: 96%;
   border-radius: 0px;
   background-image: url("./florence_header.jpeg");
   background-size: cover;
-  padding: 30px;
+  padding: 35px;
   font-weight: bold;
+  margin: auto;
+  float: center;
 }
 
 ul {
   list-style-type: none;
-  margin-top: 15px;
-  margin: 18px;
+  margin-top: 10px;
+  /* margin: 18px; */
   padding: 18px;
   overflow: hidden;
   background-color: rgb(235, 220, 207);
   opacity: .76;
-  width: 90%;
+  width: 98%;
   margin: auto;
+  border-radius: 2px;
+  float: center;
 }
 
 li {
@@ -85,7 +89,7 @@ li a {
   display: block;
   color: rgb(61, 44, 25);
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px ;
   text-decoration: none;
 }
 
@@ -96,8 +100,8 @@ li a:hover {
 }
 
 table {
-  margin: 20px;
-  padding: 13px;
+  margin: 15px;
+  padding: 5px;
   border: solid;
   border-collapse: collapose;
   border-color: rgb(218, 208, 193)    ;
@@ -105,6 +109,7 @@ table {
   font-size: 15px;
   color: rgb(14, 12, 53);
   text-align:center;
+   border-radius: 2px;
   
 }
 table, th, td {
@@ -119,21 +124,22 @@ tr:nth-child(odd) {
   margin: 15px;
   padding: 30px;
   border: solid;
-  border-color: rgb(219, 194, 155)  ;
+  border-color: rgb(211, 189, 155)  ;
   border-width: 3px;
   color: rgb(14, 12, 53);
   width: 60%;
-  float:left
+  float:left;
+  border-radius: 2px;
  }
 
- .packingForms {
+.packingForms {
   margin: auto;
   width: 50%;
   padding: 10px;
   font-size: 18px;
   border-style: solid;
-  border-color: rgb(233, 223, 207)  
-  
+  border-color: rgb(233, 223, 207) ;
+  border-radius: 2px;
  }
 
  button {
@@ -150,6 +156,7 @@ tr:nth-child(odd) {
   color: rgb(14, 12, 53);
   float: left;
   width: 31%;
+  z-index: -1;
 }
 
 #home {
@@ -172,6 +179,3 @@ tr:nth-child(odd) {
   background-size:cover
 }
 
-#listCategory{
-  padding:10000px;
-}
