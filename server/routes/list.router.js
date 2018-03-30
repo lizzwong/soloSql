@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer')
 
 router.get('/:id', function(request,response){
     const id = request.params.id;
@@ -115,7 +116,7 @@ router.post('/progress', function(request,response){
 router.get('/view/:id', function(request,response){
     console.log('Getting recent list');
     const id = request.params.id;
-    const sqlText = `SELECT * FROM progress WHERE trip_id=$1 ORDER BY packed DESC, type, category, id`;
+    const sqlText = `SELECT * FROM progress WHERE trip_id=$1 ORDER BY packed ASC, type, category, id`;
     pool.query(sqlText, [id])
     .then(function(result){
         console.log('Got list view items');
@@ -156,4 +157,49 @@ router.put('/completeitem/:id', function(request,response){
         response.sendStatus(500);
     })
 })
+
+
+router.put('/emails/:id', function (request, response) {
+    console.log('Email list');
+    const id = request.params.id;
+    const sqlText = `SELECT * FROM progress WHERE trip_id=$1 ORDER BY packed ASC, type, category, id`;
+
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'the.packit.protector@gmail.com',
+                pass: 'nhqpz32x'
+            }
+        });
+
+
+    pool.query(sqlText, [id])
+        .then(function (result) {
+            console.log('Got list view items');
+            response.send(result.rows);
+        })
+        .catch(function (error) {
+            console.log('Error getting list view', error);
+            response.sendStatus(500);
+        })
+
+
+    var mailOptions = {
+        from: 'the.packit.protector@gmail.com',
+        to: 'lizzwong@gmail.com',
+        subject: "test email",
+        text: 'Hat hat hat'
+    }
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        }
+        else {
+            console.log('Email sent:' + info.response);
+
+        }
+    })
+})
+
 module.exports = router;

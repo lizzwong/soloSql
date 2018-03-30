@@ -1,4 +1,4 @@
-<div class="listView" style=" z-index: -1">
+<div class="listView" style=" z-index: -1; margin-bottom: 20px;">
     <h3>{{vm.lists.allLists.id}}</h3>
     <table>
         <thread>
@@ -29,5 +29,5 @@
             </tr>
         </tbody>
     </table>
-    <button>Email</button>
+    <button ng-click="vm.email(vm.lists.viewList, vm.userObject)">Email</button>
 </div>

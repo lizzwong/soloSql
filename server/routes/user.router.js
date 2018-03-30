@@ -4,6 +4,7 @@ const Person = require('../models/Person');
 const userStrategy = require('../strategies/sql.localstrategy');
 const pool = require('../modules/pool.js');
 const router = express.Router();
+const nodemailer = require('nodemailer');
 
 // Handles Ajax request for user information if user is authenticated
 router.get('/', (req, res) => {
@@ -74,5 +75,12 @@ router.put('/:id', function(request,response){
     })
 })
   
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'the.packit.protector@gmailcom',
+    pass: 'nhqpz32x'
+  }
+});
 
 module.exports = router;

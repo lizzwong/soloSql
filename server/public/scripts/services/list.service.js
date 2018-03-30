@@ -215,5 +215,28 @@ myApp.service('ListService', ['$http', '$location', '$route', function ($http, $
             console.log('Error completing item');
         })
     }
+
+    self.email = function (lastList, userObject) {
+        console.log('Email list', lastList, userObject);
+
+        $http({
+            method: 'PUT',
+            url: `/lists/emails/${userObject.id}`,
+            data: {
+                list_id : lastList,
+                email : userObject.email,
+            },
+        })
+            .then(function (response) {
+                self.listView(lastList.trip_id);
+                console.log('Email successful');
+                
+            })
+            .catch(function (error) {
+                console.log('Error emailing list');
+
+            })
+
+    }
    
 }]);

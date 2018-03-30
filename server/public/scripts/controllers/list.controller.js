@@ -70,4 +70,9 @@ myApp.controller('ListController', ['UserService', 'InventoryService', 'ListServ
     //----deleting/editing packing lists----
     self.deleteListItem = ListService.deleteListItem;
     self.complete = ListService.complete;
+
+    //----nodemailer----
+    self.email = ListService.email;
+    // self.email(self.lists.allLists.id, self.userObject.email)
+
 }]);

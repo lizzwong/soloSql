@@ -64,7 +64,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
     })
     .then(function(result){
       console.log('response', result);
-      alert("Successful upload!");
+      alert("Your picture is uploaded! Don't forget to save!");
       self.userObject.picture = result.filesUploaded[0].url;
       console.log('New profile pic', self.userObject.picture);
 
