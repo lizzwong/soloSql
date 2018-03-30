@@ -115,7 +115,7 @@ router.post('/progress', function(request,response){
 router.get('/view/:id', function(request,response){
     console.log('Getting recent list');
     const id = request.params.id;
-    const sqlText = `SELECT * FROM progress WHERE trip_id=$1 ORDER BY id, packed, category, type`;
+    const sqlText = `SELECT * FROM progress WHERE trip_id=$1 ORDER BY packed DESC, type, category, id`;
     pool.query(sqlText, [id])
     .then(function(result){
         console.log('Got list view items');

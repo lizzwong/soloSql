@@ -10,11 +10,11 @@
     
             <form class="packingForms">
                 <label> {{item.item}}</label>
-                <input type="checkbox" ng-model="checked" ng-init="checked=false" />
+                <input type="checkbox" ng-click="vm.addItem(item, vm.lastList.id)" value="Add"/>
     
             </form>
     
         </div>
-        <div ng-include="'views/partial/listView.html'"></div>
     </div>
+    <div ng-include="'views/partials/list.view.html'"></div>
 </div>

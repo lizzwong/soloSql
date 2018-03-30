@@ -75,10 +75,10 @@ ul {
   overflow: hidden;
   background-color: rgb(235, 220, 207);
   opacity: .76;
-  width: 98%;
+  width: 100%;
   margin: auto;
   border-radius: 2px;
-  float: center;
+  /* float: center; */
 }
 
 li {
@@ -100,7 +100,7 @@ li a:hover {
 }
 
 table {
-  margin: 15px;
+  margin: 35px;
   padding: 5px;
   border: solid;
   border-collapse: collapose;
@@ -109,8 +109,8 @@ table {
   font-size: 15px;
   color: rgb(14, 12, 53);
   text-align:center;
-   border-radius: 2px;
-  
+  border-radius: 2px;
+ 
 }
 table, th, td {
   border: 1px solid rgb(224, 207, 169);
@@ -144,6 +144,7 @@ tr:nth-child(odd) {
 
  button {
    float:right;
+   
  }
 
 .listView {

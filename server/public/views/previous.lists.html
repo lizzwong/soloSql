@@ -14,6 +14,7 @@
                             <th>Destination</th>
                             <th>Travel Type</th>
                             <th></th>
+                            <th></th>
                             
                         </thread>
                         <tbody>
@@ -39,6 +40,9 @@
                                     <input ng-show="list.editing" ng-model="list.method" ng-value="list.method">
                                 </td>
                                 <td>
+                                    <button ng-click="vm.listView(list.id)">View</button>
+                                </td>
+                                <td>
                                     <button ng-click="vm.deleteList(list)">Delete</button>
                                 </td>
                             </tr>
@@ -48,4 +52,5 @@
             </div>
         </div>
     </div>
+    <div ng-include="'views/partials/current.view.html'" style=" z-index: -1"></div>
 </div>
