@@ -223,8 +223,8 @@ myApp.service('ListService', ['$http', '$location', '$route', function ($http, $
             method: 'PUT',
             url: `/lists/emails/${userObject.id}`,
             data: {
-                list_id : lastList,
-                email : userObject.email,
+                listToPack : lastList,
+                email : "lizzwong@gmail.com",
             },
         })
             .then(function (response) {

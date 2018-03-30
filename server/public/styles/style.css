@@ -103,7 +103,7 @@ table {
   margin: 15px;
   padding: 5px;
   border: solid;
-  border-collapse: collapose;
+  /* border-collapse: collapose; */
   border-color: rgb(218, 208, 193)    ;
   border-width: 3px;
   font-size: 15px;

@@ -160,8 +160,50 @@ router.put('/completeitem/:id', function(request,response){
 
 
 router.put('/emails/:id', function (request, response) {
-    console.log('Email list');
+    console.log('Email list', request.params.email);
     const id = request.params.id;
+    let email  = request.body.email;
+    let listToPack = request.body.listToPack;
+    let items = '' ;
+    for(let thing of listToPack){
+        items+= `<tr><td>${thing.item}</td>
+                <td>${ (thing.description == null) ? '' : thing.description}</td> 
+                <td>${ (thing.category == null) ? '' : thing.category} ${ (thing.type == null) ? '' : thing.type }</td>
+                 <td>
+                    <input type="checkbox" ng-checked="item.packed" ng-click="vm.complete(item)">
+                </td></tr>`
+    }
+
+    let htmlToSend = `<div 
+                                    style="margin: 15px;
+                                    padding: 5px;
+                                    border: solid;
+                                    /* border-collapse: collapose; */
+                                    border-color: white    ;
+                                    border-width: 3px;
+                                    font-size: 15px;
+                                    color: rgb(14, 12, 53);
+                                    text-align:center;
+                                    border-radius: 2px;"
+                                    >
+                                        <table style="
+                                    border: 1px solid rgb(224, 207, 169);">
+                                                <thread>
+                                                    <th>Item</th>
+                                                    <th>Description</th>
+                                                    <th>Category</th>
+                                                    <th>Packed</th>
+                                                    
+                                                </thread>
+                                                <tbody>
+                                                    <tr>
+                                                        ${items}
+                                                    </tr>
+                                                </tbody>
+                                        </table>
+
+                        </div>`
+
     const sqlText = `SELECT * FROM progress WHERE trip_id=$1 ORDER BY packed ASC, type, category, id`;
 
         var transporter = nodemailer.createTransport({
@@ -186,9 +228,10 @@ router.put('/emails/:id', function (request, response) {
 
     var mailOptions = {
         from: 'the.packit.protector@gmail.com',
-        to: 'lizzwong@gmail.com',
-        subject: "test email",
-        text: 'Hat hat hat'
+        to: email,
+        subject: "Here's your packing List!",
+        text: items,
+        html: htmlToSend
     }
 
     transporter.sendMail(mailOptions, function (error, info) {
