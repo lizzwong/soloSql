@@ -1,13 +1,13 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container" >
-    <h2>Let's Start Packing</h2>
+    <h2>Let&rsquo;s Start Packing!</h2>
     <h4>
         <div ng-include="'views/partials/list.categories.html'"></div>
     </h4>
     <div class="Category">
         <form>
         <h2>
-            Name the List: <input ng-model="vm.lists.newList.title" placeholder="Trip to Florence">
+            Name the WanderList: <input ng-model="vm.lists.newList.title" placeholder="Trip to Florence">
         </h2>
         <div>
             <p>
@@ -16,7 +16,7 @@
             </p>
 
             <p>
-                How long are you going to be gone?
+                How many days?
                 <input type="number" ng-model="vm.lists.newList.duration" placeholder="2">
             </p>
 
@@ -32,7 +32,7 @@
                     <option value="Plane">Plane</option>
                     <option value="Train">Train</option>
                     <option value="Automobile">Automobile</option>
-                    <option value="Automobile">Burro</option>
+                    <option value="Burro">Burro</option>
                 </select>
             </p>
             
@@ -44,7 +44,7 @@
                     <option value=false>No</option>
                 </select>
             </p>
-            <a href="#!essentials"><input type="button" ng-click="vm.addList(vm.list.newList)" value="Start Packing! "></a>
+           <input type="button" ng-click="vm.addList(vm.list.newList)" value="Start Packing! ">
         </form>
         </div>
     </div>

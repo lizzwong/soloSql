@@ -47,6 +47,7 @@ myApp.service('ListService', ['$http', '$location', '$route', function ($http, $
             console.log('New list added');
             self.getLists(self.lists.newList.userObject.id)
             self.emptyInputs();
+            alert("List added! Let's start packing!")
         })
         .catch(function(error){
             console.log('Error posting new list', error);
@@ -86,6 +87,7 @@ myApp.service('ListService', ['$http', '$location', '$route', function ($http, $
         .then(function (response){
             console.log('response', response);
             self.getLists(list.user_id);
+           
         })
         .catch(function(error){
             console.log('Error updating list');

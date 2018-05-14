@@ -167,7 +167,10 @@ tr:nth-child(odd) {
   /* width:50%; */
   text-align:center;
   background-image:url(../styles/img_1516.jpg);
-  background-size:cover
+  background-size:cover;
+  background-color: rgb(121, 80, 34);
+  
+
 }
 
 #register {
@@ -177,6 +180,8 @@ tr:nth-child(odd) {
   /* width:50%; */
   text-align:center;
   background-image:url(../styles/img_1516.jpg);
-  background-size:cover
+  background-size:cover;
+  background-color: rgb(121, 80, 34);
+ 
 }
 

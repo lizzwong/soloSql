@@ -179,7 +179,7 @@ router.put('/emails/:id', function (request, response) {
                                     padding: 5px;
                                     border: solid;
                                     /* border-collapse: collapose; */
-                                    border-color: white    ;
+                                    border-color: white;
                                     border-width: 3px;
                                     font-size: 15px;
                                     color: rgb(14, 12, 53);

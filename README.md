@@ -1,14 +1,18 @@
-# Name of Project
+WanderList
 
-One Paragraph of project description goes here. Link to the live version of the app if it's hosted on Heroku.
+The WanderList program is designed to streamline the busy, disorganized process of packing for any trip, big or small. It can help remind you of your essentials, and let you pack from your own personalized inventory. 
 
-## Built With
+Built With
 
-List technologies and frameworks here
+Angular JS
+Node JS
+SQL
+Nodemailer
+
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Clone or fork the respository from Github, and NPM install the dependencies. You will also need to copy the SQL file into a database interface.
 
 ### Prerequisites
 
@@ -30,36 +34,30 @@ CREATE TABLE "users" (
 );
 ```
 
-## Screen Shot
-
-Include one or two screen shots of your project here (optional). Remove if unused.
-
 ## Documentation
 
-Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
+https://docs.google.com/document/d/1C_LQJe9OmdiIGMvAJTiBnpJ8MmP2AgQ-Ow0yhD1ehSI/edit
+Scope Document
 
 ### Completed Features
 
 High level list of items completed.
 
-- [x] Feature a
-- [x] Feature b
+- [x] User populated unique inventory
+- [x] Create new packing lists with specific list id
+- [x] Checkmarks for knowing what is packed
+- [x] Email feature to have the list on hand whenever necessary
 
 ### Next Steps
 
-Features that you would like to add at some point in the future.
+I would like to add weather API to help plan temperature appropriate clothing for the trip. Also intigrate any travel documents
 
-- [ ] Feature c
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* Name of author(s)
+Elizabeth Wong
 
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
+Thank you to my cohort and instructors. 
